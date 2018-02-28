@@ -1,0 +1,36 @@
+/* LIBRARIES */
+
+@import './../../node_modules/fancybox/dist/scss/jquery.fancybox.scss';
+@import './../../node_modules/fancybox/dist/helpers/scss/jquery.fancybox-buttons.scss';
+@import './../../node_modules/fancybox/dist/helpers/scss/jquery.fancybox-thumbs.scss';
+
+/* BASE */
+
+@import './base/_reset.scss';
+@import './base/_colors.scss';
+@import './base/_fonts.scss';
+@import './base/_mixins.scss';
+@import './base/_base.scss';
+@import './base/_animations.scss';
+
+/* SECTIONS */
+
+@import './sections/_header.scss';
+@import './parts/_searchbar.scss';
+@import './sections/_main-screen.scss';
+@import './sections/_about.scss';
+@import './sections/_responsive.scss';
+@import './sections/_who-we-are.scss';
+@import './sections/_features.scss';
+@import './sections/_portfolio.scss';
+@import './sections/_service.scss';
+@import './sections/_pricing.scss';
+@import './sections/_expert.scss';
+@import './sections/_impressed.scss';
+@import './sections/_blog.scss';
+@import './sections/_clients.scss';
+@import './sections/_subscribe.scss';
+@import './sections/_contact.scss';
+@import './sections/_locate.scss';
+@import './sections/_social.scss';
+@import './sections/_footer.scss';

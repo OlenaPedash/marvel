@@ -1,0 +1,26 @@
+{
+    "name": "name-project",
+    "description": "description project",
+    "main": "index.js",
+    "license": "ISC",
+    "homepage": "https://github.com/OlenaPedash/marvel.git",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "latest",
+        "font-awesome": "latest",
+        "parallax": "latest",
+        "simple-line-icons": "latest",
+        "slick-carousel": "latest",
+        "slick": "latest"
+    },
+    "devDependencies": {
+        "bxslider-4": "latest"
+    }
+}

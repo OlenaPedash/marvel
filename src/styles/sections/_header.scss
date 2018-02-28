@@ -1,0 +1,196 @@
+.header {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  padding: 10px 0 10px 0;
+  @include transition(0.4s);
+  &--fixed {
+    position: fixed;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+  &--animate {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  &__container {
+    @include display-flex(row, space-between, center);
+    @media (max-width: 835px) {
+      flex-direction: column;
+      justify-content: center;
+    }
+    @media (max-width: 768px) {
+      padding: 0 10px;
+    }
+    @media (max-width: 600px) {
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  &__logo-wrapper {
+    display: block;
+    text-decoration: none;
+    min-height: 33px;
+    @media (max-width: 768px) {
+      margin-bottom: 0;
+      padding-top: 10px;
+    }
+    @media (max-width: 600px) {
+      padding-top: 0;
+    }
+  }
+  &__logo {
+    display: block;
+  }
+  &__nav {
+    @include display-flex (row, space-between, center);
+    @media (max-width: 835px) {
+      width: 100%;
+    }
+    @media (max-width: 600px) {
+      display: none;
+      &.header__nav--open {
+        display: block;
+      }
+    }
+  }
+  &__nav-list {
+    @include display-flex (row, space-between, center);
+    @media (max-width: 835px) {
+      width: 100%;
+      padding-top: 10px;
+      justify-content: center;
+    }
+    @media (max-width: 600px) {
+      margin-top: 10px;
+      flex-direction: column;
+    }
+  }
+}
+
+.nav {
+  &__btn {
+    display: none;
+    width: 33px;
+    height: 33px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    @include transition(0.4s);
+    &:hover {
+      span {
+        background-color: $black;
+      }
+    }
+    @media (max-width: 600px) {
+      display: block;
+    }
+    span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      margin: 0 auto 4px;
+      background-color: $gray1;
+      @include transition(0.4s);
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+    &--animate {
+      position: relative;
+      border: none;
+      background-color: transparent;
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        &:first-of-type {
+          transform: translate(-50%, -50%) rotate(225deg);
+        }
+        &:nth-of-type(2) {
+          opacity: 0;
+          transform: scale(0);
+        }
+        &:last-of-type {
+          transform: translate(-50%, -50%) rotate(-225deg);
+        }
+      }
+      &:hover {
+        background-color: transparent;
+        span {
+          background-color: $black;
+        }
+      }
+    }
+  }
+  &__item {
+    position: relative;
+    display: block;
+    margin-left: 20px;
+    @include display-flex (column, center, center);
+    list-style: none;
+    @include transition(0.4s);
+    @media (max-width: 910px) {
+      margin-left: 10px;
+    }
+    @media (max-width: 600px) {
+      margin-left: 0;
+      margin-bottom: 5px;
+    }
+  }
+  &__item-name {
+    position: relative;
+    display: block;
+    padding: 8px 0;
+    border: 1px solid transparent;
+    font: 300 14px/1 Montserrat, san-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: $black;
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      left: 0;
+      right: 100%;
+      bottom: 0;
+      background: $black;
+      height: 2px;
+      transition-property: right;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-out;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      left: 0;
+      right: 100%;
+      top: 0;
+      background: $black;
+      height: 2px;
+      transition-property: right;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-out;
+    }
+    &:hover {
+      opacity: 1 !important;
+      &:before {
+        right: 0;
+      }
+    }
+    &--active {
+      opacity: 1 !important;
+      &:after {
+        right: 0;
+      }
+    }
+  }
+}

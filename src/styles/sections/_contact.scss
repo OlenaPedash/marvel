@@ -1,0 +1,458 @@
+.contact {
+  min-height: 680px;
+  background-color: $darkWhite;
+  background: url('./../img/contact-bg-1.png') center no-repeat;
+  background-size: cover;
+  &__container {
+    min-height: 680px;
+    padding: 100px 15px;
+    @include display-flex (column,
+    flex-start,
+    center);
+    @media (min-width: 601px) and (max-width: 768px) {
+      padding-top: 130px;
+    }
+    @media (max-width: 460px) {
+      padding: 80px 10px 40px 10px;
+    }
+  }
+  &__form {
+    width: 100%;
+    max-width: 1000px;
+    @include display-flex(column,
+    flex-start,
+    flex-start);
+    padding: 0 15px;
+    @media (max-width: 768px) {
+      align-items: center;
+    }
+    @media (max-width: 460px) {
+      padding: 0;
+    }
+  }
+  &__inputs-wrapper {
+    width: 100%;
+    @include display-flex(row,
+    center,
+    center);
+    flex-wrap: wrap;
+  }
+  &__input {
+    position: relative;
+    width: calc((100% - 30px)/2);
+    margin: 0 30px 40px 0;
+    &:nth-of-type(2) {
+      margin-right: 0;
+    }
+    &:nth-of-type(4) {
+      margin-right: 0;
+    }
+    &--filled {
+      .contact__input-field {
+        color: $black;
+        opacity: 1;
+        transition-delay: 0.3s;
+      }
+      .contact__input-label:before {
+        transform: translateX(-10px);
+        border: 1px solid $black;
+        border-right: none;
+        @media (max-width: 460px) {
+          transform: translateX(-8px);
+        }
+      }
+      .contact__input-label:after {
+        transform: translateX(10px);
+        border: 1px solid $black;
+        border-left: none;
+        @media (max-width: 460px) {
+          transform: translateX(8px);
+        }
+      }
+      .contact__input-label-content {
+        animation: anim-input 0.3s forwards;
+        color: $black;
+      }
+      .contact__input-icon {
+        display: none;
+      }
+    }
+    @media (max-width: 768px) {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+  &__input-field {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 50px;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    font: 400 14px/1 Muli, sans-serif;
+    text-align: center;
+    color: $gray2;
+    opacity: 0;
+    transition: opacity 0.4s;
+    cursor: pointer;
+    &:hover {
+      &+.contact__input-label:before {
+        border: 1px solid $gray2;
+        border-right: none;
+      }
+      &+.contact__input-label:after {
+        border: 1px solid $gray2;
+        border-left: none;
+      }
+      &+.contact__input-label {
+        .contact__input-icon {
+          color: $black;
+        }
+      }
+    }
+    &:focus {
+      color: $black;
+      outline: none;
+      opacity: 1;
+      transition-delay: 0.3s;
+      &+.contact__input-label:before {
+        transform: translateX(-10px);
+        border: 1px solid $black;
+        border-right: none;
+        @media (max-width: 460px) {
+          transform: translateX(-8px);
+        }
+      }
+      &+.contact__input-label:after {
+        transform: translateX(10px);
+        border: 1px solid $black;
+        border-left: none;
+        @media (max-width: 460px) {
+          transform: translateX(8px);
+        }
+      }
+      &+.contact__input-label {
+        .contact__input-label-content {
+          animation: anim-input 0.3s forwards;
+          color: $black;
+        }
+        .contact__input-icon {
+          display: none;
+        }
+      }
+    }
+    &--invalid {
+      outline: none;
+      opacity: 1;
+      transition-delay: 0.3s;
+      &+.contact__input-label:before {
+        transform: translateX(-10px);
+        border: 1px solid $red;
+        border-right: none;
+        @media (max-width: 460px) {
+          transform: translateX(-8px);
+        }
+      }
+      &+.contact__input-label:after {
+        transform: translateX(10px);
+        border: 1px solid $red;
+        border-left: none;
+        @media (max-width: 460px) {
+          transform: translateX(8px);
+        }
+      }
+    }
+    @media (max-width: 460px) {
+      font-size: 12px;
+    }
+  }
+  &__input-label {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 0;
+    padding: 0 10px;
+    @include display-flex(row,
+    center,
+    center);
+    font: 300 16px/1 Muli, sans-serif;
+    color: $gray2;
+    user-select: none;
+    pointer-events: none;
+    &:before {
+      position: absolute;
+      content: '';
+      width: 50%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: 1px solid $gray2;
+      border-right: none;
+      transition: transform 0.3s;
+    }
+    &:after {
+      position: absolute;
+      content: '';
+      width: 50%;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      border: 1px solid $gray2;
+      border-left: none;
+      transition: transform 0.3s;
+    }
+    @media (max-width: 460px) {
+      font-size: 14px;
+    }
+  }
+  &__input-label-content {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+  }
+  &__input-icon {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: $gray2;
+    @include transition(0.4s);
+  }
+  &__textarea {
+    position: relative;
+    width: 100%;
+    margin: 10px 0 20px 0;
+    @media (max-width: 480px) {}
+    &--filled {
+      .contact__textarea-field {
+        color: $black;
+        opacity: 1;
+        transition-delay: 0.3s;
+      }
+      .contact__textarea-label:before {
+        transform: translateY(-10px);
+        border: 1px solid $black;
+        border-bottom: none;
+      }
+      .contact__textarea-label:after {
+        transform: translateY(10px);
+        border: 1px solid $black;
+        border-top: none;
+      }
+      .contact__textarea-label-content {
+        animation: anim-textarea 0.3s forwards;
+        color: $black;
+      }
+      .contact__textarea-icon {
+        display: none;
+      }
+    }
+  }
+  &__textarea-field {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 290px;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    font: 400 14px/1 Muli, sans-serif;
+    text-align: center;
+    color: $gray2;
+    opacity: 0;
+    transition: opacity 0.3s;
+    resize: none;
+    cursor: pointer;
+    &:hover {
+      &+.contact__textarea-label:before {
+        border: 1px solid $gray2;
+        border-bottom: none;
+      }
+      &+.contact__textarea-label:after {
+        border: 1px solid $gray2;
+        border-top: none;
+      }
+      &+.contact__textarea-label {
+        .contact__textarea-icon {
+          color: $black;
+        }
+      }
+    }
+    &:focus {
+      color: $black;
+      outline: none;
+      opacity: 1;
+      transition-delay: 0.3s;
+      &+.contact__textarea-icon {
+        display: none;
+      }
+      &+.contact__textarea-label:before {
+        transform: translateY(-10px);
+        border: 1px solid $black;
+        border-bottom: none;
+      }
+      &+.contact__textarea-label:after {
+        transform: translateY(10px);
+        border: 1px solid $black;
+        border-top: none;
+      }
+      &+.contact__textarea-label {
+        .contact__textarea-label-content {
+          animation: anim-textarea 0.3s forwards;
+          color: $black;
+        }
+        .contact__textarea-icon {
+          display: none;
+        }
+      }
+    }
+    @media (max-width: 460px) {
+      font-size: 12px;
+    }
+  }
+  &__textarea-label {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 290px;
+    top: 0;
+    left: 0;
+    padding: 0 10px;
+    font: 300 16px/1 Muli, sans-serif;
+    color: $gray2;
+    user-select: none;
+    pointer-events: none;
+    &:before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 50%;
+      top: 0;
+      left: 0;
+      border: 1px solid $gray2;
+      border-bottom: none;
+      transition: transform 0.3s;
+    }
+    &:after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 50%;
+      bottom: 0;
+      left: 0;
+      border: 1px solid $gray2;
+      border-top: none;
+      transition: transform 0.3s;
+    }
+    @media (max-width: 460px) {
+      font-size: 14px;
+    }
+  }
+  &__textarea-label-content {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+  }
+  &__textarea-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: $gray2;
+    @include transition(0.4s);
+  }
+  &__btn {
+    width: 170px;
+    height: 50px;
+    background-color: transparent;
+    border: 1px solid $gray2;
+    font: 300 16px/1 Muli, sans-serif;
+    color: $gray2;
+    @include transition(0.4s);
+    cursor: pointer;
+    &:hover {
+      border: 1px solid $black;
+      background-color: $black;
+      color: $yellow;
+    }
+    @media (max-width: 480px) {
+      width: 100%;
+    }
+    &--disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+}
+
+label.contact__input-field--invalid {
+  position: absolute;
+  display: block;
+  width: 100%;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font: 300 13px/1 Muli, sans-serif;
+  text-align: center;
+  color: $red;
+}
+
+input[type="checkbox"] {
+  display: none;
+  &+label {
+    position: relative;
+    display: block;
+    height: 20px;
+    margin-bottom: 20px;
+    padding-left: 35px;
+    font: 400 14px/20px Montserrat, sans-serif;
+    letter-spacing: 0.04em;
+    color: $black;
+    cursor: pointer;
+    @include transition(0.4s);
+    user-select: none;
+    a {
+      font-weight: 700;
+    }
+    &:before {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 20px;
+      height: 20px;
+      left: 0;
+      top: 0;
+      border: 1px solid $gray2;
+      opacity: 0.6;
+      transition: all .12s, border-color .08s;
+    }
+    &:hover {
+      color: $black;
+      &:before {
+        border: 1px solid $black;
+      }
+    }
+  }
+  &:checked+label {
+    &:before {
+      width: 10px;
+      top: -5px;
+      left: 5px;
+      border: 1px solid $black;
+      border-radius: 0;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      transform: rotate(45deg);
+      opacity: 1;
+    }
+  }
+}

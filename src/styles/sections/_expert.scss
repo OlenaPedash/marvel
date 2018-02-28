@@ -1,0 +1,254 @@
+.expert {
+  min-height: 700px;
+  background-color: $darkWhite;
+  background: url('./../img/team-bg.png') center no-repeat;
+  background-size: cover;
+  &__container {
+    min-height: 700px;
+    padding: 100px 15px;
+    @include display-flex (column,
+    flex-start,
+    center);
+    @media (min-width: 601px) and (max-width: 768px) {
+      padding-top: 130px;
+    }
+    @media (max-width: 460px) {
+      padding: 80px 10px 40px 10px;
+    }
+  }
+  &__slider-nav-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 185px;
+    margin: 50px 0 25px 0;
+  }
+  &__slider-nav {
+    width: 100%;
+    min-height: 185px;
+  }
+  &__item-nav {
+    width: calc((100% - 40px)/3);
+    height: auto;
+    margin: 0 10px;
+    outline: none !important;
+    @media (max-width: 768px) {
+      width: 50%;
+    }
+  }
+  &__slider-for-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+  }
+  &__slider-for {
+    width: 100%;
+    min-height: 100px;
+  }
+  &__item-for {
+    width: 100%;
+    min-height: 120px;
+    color: $black;
+    display: flex !important;
+    outline: none !important;
+    @media (max-width: 960px) {
+      flex-direction: column;
+    }
+  }
+  &__name-block {
+    width: calc((100% - 40px)/3);
+    min-height: 120px;
+    margin-right: 20px;
+    padding: 10px;
+    @include display-flex (column,
+    center,
+    center);
+    @media (max-width: 1024px) {
+      width: calc((100% - 20px)/3);
+      margin-right: 10px;
+    }
+    @media (max-width: 960px) {
+      width: 100%;
+      min-height: 60px;
+      margin-right: 0;
+    }
+    @media (max-width: 460px) {
+      padding: 5px;
+    }
+  }
+  &__name {
+    margin-bottom: 6px;
+    font: 700 28px/1 Montserrat, san-serif;
+    letter-spacing: 0.04em;
+    text-align: center;
+    color: $darkGray1;
+    @media (max-width: 460px) {
+      font-size: 20px;
+    }
+  }
+  &__spec {
+    font: 400 16px/1 Muli, san-serif;
+    text-align: center;
+    color: $gray2;
+  }
+  &__data-block {
+    width: calc((100% - 40px)/3);
+    min-height: 120px;
+    margin-right: 20px;
+    padding: 10px;
+    @include display-flex (column,
+    center,
+    center);
+    @media (max-width: 1024px) {
+      width: calc((100% - 20px)/3);
+      margin-right: 10px;
+    }
+    @media (max-width: 960px) {
+      width: 100%;
+      min-height: 60px;
+      margin-right: 0;
+    }
+    @media (max-width: 460px) {
+      padding: 5px;
+    }
+  }
+  &__description {
+    display: block;
+    width: 100%;
+    font: 300 14px/1.4 Montserrat, san-serif;
+    text-align: justify;
+    color: $gray2;
+    @media (max-width: 960px) {
+      text-align: center;
+    }
+    @media (max-width: 460px) {
+      min-height: 70px;
+      font-size: 12px;
+    }
+  }
+  &__social-block {
+    width: calc((100% - 40px)/3);
+    min-height: 120px;
+    padding: 10px;
+    @include display-flex(row,
+    center,
+    center);
+    @media (max-width: 1024px) {
+      width: calc((100% - 20px)/3);
+    }
+    @media (max-width: 960px) {
+      width: 100%;
+      min-height: 60px;
+    }
+    @media (max-width: 460px) {
+      padding: 5px;
+      flex-wrap: wrap;
+    }
+  }
+  &__social-item {
+    width: 45px;
+    height: 45px;
+    margin: 2px;
+    border: 1px solid $yellow;
+    background-color: $yellow;
+    @include display-flex(row,
+    center,
+    center);
+    flex-shrink: 0;
+    font-size: 22px;
+    color: $black;
+    @include transition(0.4s);
+    cursor: pointer;
+    &:hover {
+      border: 1px solid $black;
+      background-color: $black;
+      color: $yellow;
+    }
+    @media (max-width: 460px) {
+      width: 38px;
+      height: 38px;
+      font-size: 18px;
+    }
+  }
+  &__slider-btn {
+    position: absolute;
+    z-index: 10;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    top: -40px;
+    border: 1px solid $black;
+    font-size: 16px;
+    color: $black;
+    cursor: pointer;
+    &:hover {
+      background-color: $black;
+      color: $yellow;
+    }
+    &--prev {
+      left: 50%;
+      transform: translateX(-50px)
+    }
+    &--next {
+      right: 50%;
+      transform: translateX(50px)
+    }
+  }
+  .slick-dots {
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    li {
+      width: 30px;
+      height: 5px;
+      margin-right: 4px;
+      background-color: $black;
+      border: none;
+      cursor: pointer;
+      button {
+        display: block;
+        border: none;
+        font-size: 0;
+      }
+      &:last-of-type {
+        margin-right: 0;
+      }
+      &.slick-active {
+        background-color: $yellow;
+      }
+    }
+  }
+}
+
+.corner {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  &--top-left {
+    top: 0;
+    left: 0;
+    border-top: 1px solid $black;
+    border-left: 1px solid $black;
+  }
+  &--top-right {
+    top: 0;
+    right: 0;
+    border-top: 1px solid $black;
+    border-right: 1px solid $black;
+  }
+  &--bottom-left {
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid $black;
+    border-left: 1px solid $black;
+  }
+  &--bottom-right {
+    bottom: 0;
+    right: 0;
+    border-bottom: 1px solid $black;
+    border-right: 1px solid $black;
+  }
+}
